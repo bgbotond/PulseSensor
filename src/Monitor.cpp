@@ -56,7 +56,7 @@ void Monitor::draw()
 	gl::drawLine( posHeader1, posHeader2 );
 
 	int heightAll = posHeader1.y;
-	for( std::vector<shared_ptr<Section>>::iterator p = mSections.begin(); p != mSections.end(); ++p )
+	for( std::vector< shared_ptr< Section > >::iterator p = mSections.begin(); p != mSections.end(); ++p )
 	{
 		int heightAct = (*p)->getHeight( mArea.getWidth());
 		int heightMax = mArea.y2 - heightAll;

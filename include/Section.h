@@ -6,6 +6,7 @@
 #include "cinder/Font.h"
 #include "cinder/Color.h"
 #include "cinder/gl/Fbo.h"
+#include "cinder/Text.h"
 
 namespace HeartRate
 {
@@ -69,12 +70,12 @@ void TSection<T>::draw( ci::Vec2i pos, int width, int heightMax )
 	else
 		valueStream << mName;
 
-	ci::TextBox label = TextBox().alignment( ci::TextBox::LEFT ).font( mFont ).size( ci::Vec2i( width, ci::TextBox::GROW )).text( valueStream.str());
+	ci::TextBox label = ci::TextBox().alignment( ci::TextBox::LEFT ).font( mFont ).size( ci::Vec2i( width, ci::TextBox::GROW )).text( valueStream.str());
 	label.setColor( mColorName );
 	ci::Surface surfaceLabel = label.render();
 
 	if( surfaceLabel.getHeight() <= heightMax )
-		gl::draw( surfaceLabel, pos );
+		ci::gl::draw( surfaceLabel, pos );
 }
 
 template<class T>
@@ -87,7 +88,7 @@ int TSection<T>::getHeight( int width )
 	else
 		valueStream << mName;
 
-	ci::TextBox label = TextBox().alignment( ci::TextBox::LEFT ).font( mFont ).size( ci::Vec2i( width, ci::TextBox::GROW ) ).text( valueStream.str());
+	ci::TextBox label = ci::TextBox().alignment( ci::TextBox::LEFT ).font( mFont ).size( ci::Vec2i( width, ci::TextBox::GROW ) ).text( valueStream.str());
 	ci::Surface surfaceLabel = label.render();
 	return surfaceLabel.getHeight();
 }

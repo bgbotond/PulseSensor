@@ -49,7 +49,7 @@ protected:
 
 	bool                                  mVisible;
 	ci::Font                              mFont;
-	std::vector<std::shared_ptr<Section>> mSections;
+	std::vector< std::shared_ptr< Section > > mSections;
 
 	ci::CallbackId                        mCbMouseDown;
 	ci::CallbackId                        mCbMouseDrag;

@@ -1,3 +1,5 @@
+#include <fstream>
+
 #include "cinder/app/AppBasic.h"
 #include "Recorder.h"
 #include "Util.h"

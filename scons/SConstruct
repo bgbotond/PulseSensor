@@ -1,0 +1,13 @@
+env = Environment()
+
+env['APP_TARGET'] = 'PulseSensorApp'
+env['APP_SOURCES'] = ['Cardioid.cpp', 'Monitor.cpp', 'PParams.cpp',
+						'PulseSensor.cpp', 'PulseSensorApp.cpp', 'Recorder.cpp',
+						'Section.cpp', 'Sensor.cpp', 'SensorDevice.cpp',
+						'SensorFile.cpp', 'Util.cpp']
+env['ASSETS'] = ['pulsesensor-capture-out-com7.xml',
+				 'pulsesensor-capture-out-com8.xml']
+
+env['DEBUG'] = 0
+
+SConscript('../../../scons/SConscript', exports = 'env')

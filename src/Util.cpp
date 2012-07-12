@@ -1,3 +1,4 @@
+#include "cinder/Cinder.h"
 #include "cinder/app/AppBasic.h"
 #include "cinder/Utilities.h"
 
@@ -13,8 +14,8 @@ fs::path getFullPath( const string &fileName )
 	fs::path fullPath( getAssetPath( fileName ));
 	if ( fullPath.empty() )
 	{
-#if defined( CINDER_MAC )
-		fs::path assetPath( getResourcePath() / "assets" );
+#if defined( CINDER_COCOA )
+		fs::path assetPath( getAppPath() / "Contents/Resources/assets" );
 #else
 		fs::path assetPath( getAppPath() / "../../assets" );
 #endif
