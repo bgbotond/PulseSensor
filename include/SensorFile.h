@@ -20,7 +20,6 @@ public:
 protected:
 	std::list<ci::XmlTree>           mListXmlData;
 	std::list<ci::XmlTree>::iterator mXmlDataActIt;
-	unsigned                         mPosXmlDataAct;
 	double                           mTime;
 };
 

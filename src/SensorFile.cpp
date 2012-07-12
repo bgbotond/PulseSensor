@@ -13,7 +13,6 @@ SensorFile::SensorFile()
 : Sensor()
 , mListXmlData()
 , mXmlDataActIt()
-, mPosXmlDataAct( 0 )
 , mTime( 0.0 )
 {
 }
@@ -40,7 +39,7 @@ bool SensorFile::init( const string &fileName )
 		if( xmlPulseSensor.hasChild( "Data" ))
 		{
 			mListXmlData   = xmlPulseSensor.getChildren();
-			mPosXmlDataAct = 0;
+			mXmlDataActIt  = mListXmlData.end();
 			mInited        = true;
 			mTime          = getElapsedSeconds();
 			return true;
@@ -56,19 +55,29 @@ bool SensorFile::hasMessage()
 	if( ! mInited )
 		return false;
 
-	std::list<ci::XmlTree>::iterator xmlDataActIt = std::next( mListXmlData.begin(), mPosXmlDataAct );
+	if( mListXmlData.size() == 0 )
+		return false;
+
+	std::list<ci::XmlTree>::iterator xmlDataActIt = mXmlDataActIt;
+
+	if( xmlDataActIt == mListXmlData.end())
+	{
+		xmlDataActIt = mListXmlData.begin();
+	}
+	else
+	{
+		++xmlDataActIt;
+		if( xmlDataActIt == mListXmlData.end())
+			xmlDataActIt = mListXmlData.begin();
+	}
 
 	double time = xmlDataActIt->getAttributeValue<double>( "Time", 0.0 );
 
 	if( time + mTime <= getElapsedSeconds())
 	{
 		mXmlDataActIt = xmlDataActIt;
-		mPosXmlDataAct++;
-		if( mPosXmlDataAct >= mListXmlData.size())
-		{
-			mPosXmlDataAct = 0;
-			mTime          = getElapsedSeconds();
-		}
+		if( mXmlDataActIt == mListXmlData.begin())
+			mTime = getElapsedSeconds();
 		return true;
 	}
 
