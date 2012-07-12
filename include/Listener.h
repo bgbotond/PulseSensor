@@ -1,14 +1,13 @@
 #pragma once
 
-#include <boost/signal.hpp>
-#include <boost/bind.hpp>
+#include <boost/signals2/signal.hpp>
 
 namespace HeartRate
 {
 
 class Listener
 {
-	typedef boost::signal<void (int)>      ListenerSignal;
+	typedef boost::signals2::signal<void (int)>      ListenerSignal;
 	typedef std::map<int, ListenerSignal*> MapType;
 
 public:

@@ -89,7 +89,7 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>opencv_video230d.lib; opencv_objdetect230d.lib; opencv_ml230d.lib; opencv_legacy230d.lib; opencv_imgproc230d.lib; opencv_highgui230d.lib; opencv_haartraining_engined.lib; opencv_gpu230d.lib; opencv_flann230d.lib; opencv_features2d230d.lib; opencv_core230d.lib; opencv_contrib230d.lib; opencv_calib3d230d.lib;openni.lib;cinder_d.lib;QTMLClient.lib;CVClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(OPEN_NI_LIB);$(CINDER_DIR)\lib;$(CINDER_DIR)\lib\msw;$(CINDER_DIR)\blocks\opencv\lib\vc10;$(CINDER_NI_DIR)\lib;$(QUICKTIME_DIR)\Libraries;$(BOOST_DIR)\stage\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(OPEN_NI_LIB);$(CINDER_DIR)\lib;$(CINDER_DIR)\lib\msw;$(CINDER_DIR)\blocks\opencv\lib\vc10;$(CINDER_NI_DIR)\lib;$(QUICKTIME_DIR)\Libraries;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
